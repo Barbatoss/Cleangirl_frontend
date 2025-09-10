@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npx serve . -p 3000",
     "start": "npx serve . -p 3000",
-    "build": "echo 'Static site - no build needed'"
+    "build": "rm -rf public && mkdir -p public && cp index.html order.html public/ && cp -r assets public/"
   },
   "keywords": ["clean-girl", "cleaning", "foam", "ecommerce"],
   "author": "Clean Girl",

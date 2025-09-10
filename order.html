@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order - Clean Girl Magic Cleaning Foam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind.config.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/images/webp/logo.webp">
+</head>
+
+<body class="font-lexend">
+  <!-- Progress Bar -->
+  <div class="bg-light-pink py-3">
+    <div class="container mx-auto">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <div class="w-8 h-2 bg-pink rounded-full"></div>
+          <div class="w-8 h-2 bg-pink rounded-full"></div>
+          <div class="w-8 h-2 bg-light-gray rounded-full"></div>
+        </div>
+        <div class="text-blue font-medium text-sm">
+          Spend $12 more and get a FREE GIFT!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm py-4">
+    <div class="container mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center">
+        <img src="assets/images/webp/logo.webp" alt="Clean Girl Logo" class="h-12">
+      </a>
+      <button onclick="window.history.back()" class="text-gray hover:text-pink transition-colors">
+        ← Back
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto">
+      <div class="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        
+        <!-- Left Side - Product -->
+        <div class="bg-white rounded-14 p-6 shadow-sm">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-24 h-24 bg-pink rounded-14 flex items-center justify-center">
+              <img src="assets/images/webp/spray.webp" alt="Clean Girl Magic Cleaning Foam" class="w-16 h-16 object-contain">
+            </div>
+            <div class="flex-1">
+              <h2 class="text-blue font-semibold text-xl mb-2">Clean Girl Magic Cleaning Foam</h2>
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-gray line-through text-lg" id="original-price">$19.90</span>
+                <span class="text-pink font-bold text-xl" id="current-price">$19.90</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <button onclick="decreaseQuantity()" class="w-8 h-8 rounded-full border-2 border-pink text-pink flex items-center justify-center hover:bg-pink hover:text-white transition-colors">
+                  −
+                </button>
+                <span id="quantity" class="font-semibold text-lg">1</span>
+                <button onclick="increaseQuantity()" class="w-8 h-8 rounded-full border-2 border-pink text-pink flex items-center justify-center hover:bg-pink hover:text-white transition-colors">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gift Section -->
+          <div class="bg-light-pink rounded-14 p-4 mb-6">
+            <div class="flex items-center gap-4">
+              <div class="w-16 h-16 bg-white rounded-14 flex items-center justify-center">
+                <span class="text-2xl">🔒</span>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-pink font-semibold mb-1">Gift Name</h3>
+                <p class="text-gray text-sm">Spend $12 more to unlock</p>
+              </div>
+              <div class="bg-pink text-white px-4 py-2 rounded-full text-sm font-medium">
+                FREE GIFT
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side - Upsell -->
+        <div class="bg-light-pink rounded-14 p-6">
+          <h2 class="text-blue font-bold text-2xl mb-4">Double the Cleaning, Double the Fun</h2>
+          
+          <div class="bg-white rounded-14 p-4 mb-6">
+            <div class="flex items-center gap-4">
+              <img src="assets/images/webp/spray-girl.webp" alt="Add one more" class="w-16 h-16 object-cover rounded-14">
+              <div class="flex-1">
+                <h3 class="text-blue font-semibold mb-2">Add one more Magic Cleaning Foam!</h3>
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="text-gray line-through">$19.90</span>
+                  <span class="text-pink font-bold text-lg">$14.90</span>
+                </div>
+                <button class="bg-pink text-white px-6 py-2 rounded-full font-medium hover:bg-dark-pink transition-colors">
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="proceedToCheckout()" class="w-full bg-pink text-white py-4 rounded-full font-bold text-lg hover:bg-dark-pink transition-colors mb-4">
+            Securely Checkout
+          </button>
+
+          <p class="text-blue text-center text-sm">
+            ✨ Thank you so much for your support!
+          </p>
+        </div>
+      </div>
+
+      <!-- Customer Details Form -->
+      <div class="max-w-2xl mx-auto mt-8">
+        <div class="bg-white rounded-14 p-6 shadow-sm" id="checkout-form" style="display: none;">
+          <h2 class="text-blue font-bold text-2xl mb-6 text-center">Complete Your Order</h2>
+          
+          <form id="order-form" class="space-y-4">
+            <div>
+              <label for="customer_name" class="block text-blue font-medium mb-2">Full Name *</label>
+              <input type="text" id="customer_name" name="customer_name" required
+                class="w-full px-4 py-3 border-2 border-light-gray rounded-14 focus:border-pink focus:outline-none transition-colors">
+            </div>
+
+            <div>
+              <label for="email" class="block text-blue font-medium mb-2">Email Address *</label>
+              <input type="email" id="email" name="email" required
+                class="w-full px-4 py-3 border-2 border-light-gray rounded-14 focus:border-pink focus:outline-none transition-colors">
+            </div>
+
+            <div>
+              <label for="phone" class="block text-blue font-medium mb-2">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required
+                class="w-full px-4 py-3 border-2 border-light-gray rounded-14 focus:border-pink focus:outline-none transition-colors">
+            </div>
+
+            <div>
+              <label for="address" class="block text-blue font-medium mb-2">Delivery Address *</label>
+              <textarea id="address" name="address" required rows="3"
+                class="w-full px-4 py-3 border-2 border-light-gray rounded-14 focus:border-pink focus:outline-none transition-colors resize-none"></textarea>
+            </div>
+
+            <div class="bg-light-pink rounded-14 p-4">
+              <div class="flex items-center gap-3">
+                <span class="text-2xl">💰</span>
+                <div>
+                  <h3 class="text-blue font-semibold">Payment Method</h3>
+                  <p class="text-gray text-sm">Cash on Delivery</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-t pt-4">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-gray">Subtotal:</span>
+                <span id="subtotal" class="font-semibold">$19.90</span>
+              </div>
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-blue font-bold text-lg">Total:</span>
+                <span id="total" class="text-pink font-bold text-xl">$19.90</span>
+              </div>
+            </div>
+
+            <button type="submit" id="place-order-btn"
+              class="w-full bg-pink text-white py-4 rounded-full font-bold text-lg hover:bg-dark-pink transition-colors">
+              Place Order
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Success Modal -->
+  <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" style="display: none;">
+    <div class="bg-white rounded-14 p-8 max-w-md mx-4 text-center">
+      <div class="text-6xl mb-4">🎉</div>
+      <h2 class="text-blue font-bold text-2xl mb-4">Order Placed Successfully!</h2>
+      <p class="text-gray mb-2">Order ID: <span id="order-id" class="font-semibold"></span></p>
+      <p class="text-gray mb-6">A confirmation email will be sent to you shortly.</p>
+      <button onclick="closeModal()" class="bg-pink text-white px-8 py-3 rounded-full font-medium hover:bg-dark-pink transition-colors">
+        Continue Shopping
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div id="loading-overlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" style="display: none;">
+    <div class="bg-white rounded-14 p-8 text-center">
+      <div class="animate-spin w-8 h-8 border-4 border-pink border-t-transparent rounded-full mx-auto mb-4"></div>
+      <p class="text-blue font-medium">Placing your order...</p>
+    </div>
+  </div>
+
+  <script src="assets/js/order.js"></script>
+</body>
+
+</html>

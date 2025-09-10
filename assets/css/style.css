@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Lexend+Deca:wght@100..900&family=Shrikhand&display=swap');
+* {
+  scroll-behavior: smooth;
+}
+
+/* ============================== SCROLL BAR ============================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fd0786;
+  border-radius: 16px;
+  outline: unset;
+}
+
+/* ============================ SWIPER CSS ========================= */
+.swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+.cleaning_spray .swiper-pagination-bullet {
+  width: 16px !important;
+  height: 16px !important;
+  background: #e5dde2 !important;
+  opacity: 1 !important;
+}
+
+/* ========================= SWIPER BULLETS============================= */
+.mySwiper .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #fd0786 !important;
+  opacity: 1 !important;
+}
+
+.mySwiper .swiper-pagination-bullet {
+  width: 14px !important;
+  height: 14px !important;
+  background: #e5dde2 !important;
+  opacity: 1 !important;
+}
+#pink-light-box {
+  transition: opacity 0.5s, height 0.5s;
+}
+
+/* ======================== SWIPER PAGINATION ========================= */
+.cleaning_spray .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #fd0786 !important;
+  opacity: 1 !important;
+}
+
+.cleaning_spray
+  .swiper-horizontal
+  > .swiper-pagination-bullets
+  .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  margin: 0 5px !important;
+}
+
+/* ==================== CUSTOM SCREEN ========================= */
+@media (max-width: 639.98px) {
+  .cleaning_spray .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction {
+    bottom: 4px !important;
+  }
+
+  .cleaning_spray .swiper-pagination-bullet {
+    width: 12px !important;
+    height: 12px !important;
+  }
+}

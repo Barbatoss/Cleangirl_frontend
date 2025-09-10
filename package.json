@@ -1,0 +1,17 @@
+{
+  "name": "clean-girl-website",
+  "version": "1.0.0",
+  "description": "Clean Girl Magic Cleaning Foam - Customer ordering website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve . -p 3000",
+    "start": "npx serve . -p 3000",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": ["clean-girl", "cleaning", "foam", "ecommerce"],
+  "author": "Clean Girl",
+  "license": "ISC",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
